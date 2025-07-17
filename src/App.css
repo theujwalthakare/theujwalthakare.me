@@ -3,7 +3,7 @@
 /* Typing text animation */
 .typing-text {
   overflow: hidden;
-  border-right: 0.15em solid #00f0ff;
+  border-right: 0.15em solid #377a5d;
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: 0.15em;

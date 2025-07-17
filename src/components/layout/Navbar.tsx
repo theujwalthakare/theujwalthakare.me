@@ -31,13 +31,10 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled ? 'bg-cyber-dark/80 backdrop-blur-md py-2' : 'bg-transparent py-4'
     }`}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="font-cyber text-2xl text-cyber-blue animate-glow">
-          UJWAL<span className="text-cyber-pink">.</span>DEV
-        </a>
-
+      <div className="container mx-auto px-4 flex justify-center  items-center">
+        
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-7">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -51,7 +48,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Button */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden justify-end text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}

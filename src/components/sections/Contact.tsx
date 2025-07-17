@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaLinkedin } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,17 +25,44 @@ const Contact = () => {
     setSubmitMessage('');
     setSubmitStatus('');
     
-    // Simulate form submission
     try {
-      // Replace with actual form submission logic
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const serviceId = 'service_n9bhs97';
+      const templateId = 'template_f3z1v5f';
+      const publicKey = 'yR8grnLe4y1BiSjip';
       
-      setSubmitStatus('success');
-      setSubmitMessage('Message sent successfully! I\'ll get back to you soon.');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      // Initialize EmailJS
+      emailjs.init(publicKey);
+      
+      const templateParams = {
+        to_name: "Ujwal",
+        from_name: formData.name,
+        reply_to: formData.email,
+        email: formData.email,
+        message: formData.message,
+        subject: formData.subject
+      };
+      
+      const result = await emailjs.send(serviceId, templateId, templateParams);
+      
+      if (result.status === 200) {
+        setSubmitStatus('success');
+        setSubmitMessage('Message sent successfully! I\'ll get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => {
+          setSubmitMessage('');
+          setSubmitStatus('');
+        }, 3000);
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
       setSubmitStatus('error');
       setSubmitMessage('Something went wrong. Please try again later.');
+      console.error('Error sending email:', error);
+      setTimeout(() => {
+        setSubmitMessage('');
+        setSubmitStatus('');
+      }, 3000);
     } finally {
       setIsSubmitting(false);
     }
@@ -44,20 +72,20 @@ const Contact = () => {
     {
       icon: <FaEnvelope size={20} className="text-cyber-blue" />,
       title: "Email",
-      value: "your.email@example.com",
-      link: "mailto:your.email@example.com"
+      value: "thakare2829@gmail.com",
+      link: "mailto:thakare2829@gmail.com"
     },
     {
       icon: <FaMapMarkerAlt size={20} className="text-cyber-blue" />,
       title: "Location",
-      value: "Your City, Country",
+      value: "Pune, India",
       link: null
     },
     {
       icon: <FaLinkedin size={20} className="text-cyber-blue" />,
       title: "LinkedIn",
-      value: "linkedin.com/in/yourusername",
-      link: "https://linkedin.com/in/yourusername"
+      value: "linkedin.com/in/ujwal-thakare-300b25264",
+      link: "https://linkedin.com/in/ujwal-thakare-300b25264"
     }
   ];
 
@@ -77,7 +105,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="w-full lg:w-2/3">
             <div className="cyber-border p-6">
-              <form onSubmit={handleSubmit}>
+              <form id="contact-form" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
@@ -174,24 +202,6 @@ const Contact = () => {
                   </div>
                 </div>
               ))}
-              
-              <div className="cyber-card">
-                <h3 className="text-cyber-blue font-cyber mb-4">Working Hours</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Monday - Friday:</span>
-                    <span className="text-gray-300">9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Saturday:</span>
-                    <span className="text-gray-300">By appointment</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Sunday:</span>
-                    <span className="text-gray-300">Closed</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

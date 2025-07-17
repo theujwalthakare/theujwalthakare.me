@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
+@font-face {
+  font-family: 'SDDystopian';
+  src: url('/sd-dystopian-font/Sddystopiandemo-GO7xa.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   color-scheme: dark;
@@ -12,9 +18,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: theme('colors.cyber-dark');
-  color: white;
-  font-family: theme('fontFamily.mono');
+  @apply bg-cyber-dark text-white font-mono;
   overflow-x: hidden;
 }
 
@@ -28,12 +32,16 @@ body {
   }
   
   .cyber-heading {
-    @apply font-cyber text-cyber-blue uppercase tracking-wider animate-glow;
+    font-family: 'Cyber', monospace;
+    color: #00f0ff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: glow 1.5s infinite alternate;
   }
   
   .cyber-grid {
     @apply relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 
-    before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,_theme(colors.cyber-blue/10)_1px,_transparent_1px)] 
+    before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,rgba(0,240,255,0.1)_1px,transparent_1px)] 
     before:bg-[length:20px_20px] before:opacity-50 before:z-[-1];
   }
   
@@ -41,7 +49,7 @@ body {
     @apply relative bg-cyber-light border border-cyber-blue/30 p-6 
     before:content-[''] before:absolute before:top-0 before:left-0 before:w-0 before:h-1 
     before:bg-cyber-blue before:transition-all before:duration-500 
-    hover:before:w-full hover:shadow-[0_0_15px_theme(colors.cyber-blue/30)];
+    hover:before:w-full hover:shadow-[0_0_15px_rgba(0,240,255,0.3)];
   }
   
   .cyber-border {

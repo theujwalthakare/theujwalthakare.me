@@ -3,86 +3,49 @@ import { useState } from 'react';
 const Experience = () => {
   const [activeTab, setActiveTab] = useState('work');
   
+
   const workExperience = [
-    {
-      title: "Senior Developer",
-      company: "Tech Company",
-      period: "2022 - Present",
-      description: [
-        "Led development of a high-traffic web application using React and Node.js",
-        "Implemented CI/CD pipelines that reduced deployment time by 40%",
-        "Mentored junior developers and conducted code reviews",
-        "Optimized database queries resulting in 30% faster page loads"
-      ]
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Digital Agency",
-      period: "2020 - 2022",
-      description: [
-        "Built responsive web applications for clients across various industries",
-        "Developed RESTful APIs using Node.js and Express",
-        "Implemented authentication systems and security best practices",
-        "Collaborated with designers to create pixel-perfect UI implementations"
-      ]
-    },
-    {
-      title: "Junior Developer",
-      company: "Startup Inc.",
-      period: "2018 - 2020",
-      description: [
-        "Developed and maintained features for the company's main product",
-        "Worked with React, Redux, and CSS preprocessors",
-        "Participated in daily stand-ups and sprint planning",
-        "Troubleshot and fixed bugs in existing codebase"
-      ]
-    }
+   {
+    title: "Training & Internship – Python Full Stack ",
+    company: "The Kiran Academy, Pune",
+    period: "2025 (Ongoing)",
+    description: [
+      "Undergoing intensive training in Python Full Stack, Data Science, AI/ML concepts",
+      "Built mini-projects including portfolio websites, data dashboards, and spam detection models",
+      "Learning secure coding practices, OWASP Top 10, and hands-on tools like Nmap and Burp Suite",
+      "Receiving placement support including resume building, mock interviews, and technical tests"
+    ]
+   }
   ];
-  
+
   const education = [
     {
-      degree: "Master's in Computer Science",
-      institution: "University Name",
-      period: "2016 - 2018",
+      degree: "Bachelor of Science in Computer Science",
+      institution: "Savitribai Phule Pune University",
+      period: "2022 - 2025",
       description: [
-        "Specialized in Software Engineering",
-        "Thesis on modern web development frameworks",
-        "GPA: 3.8/4.0",
-        "Relevant coursework: Advanced Algorithms, Database Systems, Web Development"
-      ]
-    },
-    {
-      degree: "Bachelor's in Computer Science",
-      institution: "University Name",
-      period: "2012 - 2016",
-      description: [
-        "Minor in Mathematics",
-        "Dean's List for 6 semesters",
-        "GPA: 3.7/4.0",
-        "Relevant coursework: Data Structures, Operating Systems, Computer Networks"
+      "Graduated with 7.93 CGPA",
+      "Completed projects in web development, networking, and database systems",
+      "Relevant subjects: Cybersecurity, Data Structures, Web Programming, Java, Python",
+      "Actively participated in tech fests and coding competitions"
       ]
     }
   ];
   
   const certifications = [
     {
-      name: "AWS Certified Developer",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      description: "Validated expertise in developing, deploying, and debugging cloud-based applications using AWS."
+      name: "Python Full Stack Development with AI & ML",
+      issuer: "The Kiran Academy, Pune",
+      date: "2025 (Ongoing)",
+      description: "Comprehensive hands-on training covering Python, Data Science, Machine Learning, AI, NumPy, Pandas, Matplotlib, Seaborn, Plotly, Scikit-Learn, Regex, and Full Stack Web Development with React, Node.js, and MongoDB. Includes industry projects and placement preparation."
     },
     {
-      name: "Professional Scrum Master I",
-      issuer: "Scrum.org",
-      date: "2022",
-      description: "Demonstrated knowledge of Scrum framework and ability to apply it effectively."
+      name: "Java Full Stack Development (Core + Advanced)",
+      issuer: "I-Tech Solutions, Nashik",
+      date: "Jan 2024 – Jul 2024",
+      description: "Completed 6-month training covering Core Java, Advanced Java, Hibernate, Spring Boot framework, and PostgreSQL. Built full-stack web applications with REST APIs, MVC architecture, and backend integrations."
     },
-    {
-      name: "MongoDB Certified Developer",
-      issuer: "MongoDB University",
-      date: "2021",
-      description: "Verified skills in building applications using MongoDB."
-    }
+    
   ];
 
   return (
