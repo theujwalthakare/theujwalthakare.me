@@ -9,7 +9,7 @@ const About = () => {
               <div className="relative overflow-hidden aspect-square">
                 {/* Replace with your actual image */}
                 <div className="w-full  bg-gradient-to-br from-cyber-blue/20 to-cyber-pink/20 flex items-center">
-                 <img src="/src/assets/profile.jpg" alt="Profile" />
+                 <img src="/images/profile.jpg" alt="Profile" />
                 </div>
               </div>
             </div>
