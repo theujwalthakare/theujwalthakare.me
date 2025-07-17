@@ -1,68 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: theme('colors.cyber-dark');
+  color: white;
+  font-family: theme('fontFamily.mono');
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer components {
+  .cyber-button {
+    @apply relative px-6 py-2 font-cyber uppercase text-cyber-blue border-2 border-cyber-blue 
+    bg-transparent hover:bg-cyber-blue/20 transition-all duration-300 
+    before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full 
+    before:border-cyber-blue/50 before:border-2 before:translate-x-1 before:translate-y-1 
+    before:transition-all before:duration-300 hover:before:translate-x-2 hover:before:translate-y-2;
   }
-  a:hover {
-    color: #747bff;
+  
+  .cyber-heading {
+    @apply font-cyber text-cyber-blue uppercase tracking-wider animate-glow;
   }
-  button {
-    background-color: #f9f9f9;
+  
+  .cyber-grid {
+    @apply relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 
+    before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,_theme(colors.cyber-blue/10)_1px,_transparent_1px)] 
+    before:bg-[length:20px_20px] before:opacity-50 before:z-[-1];
+  }
+  
+  .cyber-card {
+    @apply relative bg-cyber-light border border-cyber-blue/30 p-6 
+    before:content-[''] before:absolute before:top-0 before:left-0 before:w-0 before:h-1 
+    before:bg-cyber-blue before:transition-all before:duration-500 
+    hover:before:w-full hover:shadow-[0_0_15px_theme(colors.cyber-blue/30)];
+  }
+  
+  .cyber-border {
+    @apply border border-cyber-blue/50 relative 
+    after:content-[''] after:absolute after:top-2 after:right-2 
+    after:w-3 after:h-3 after:border-t-2 after:border-r-2 after:border-cyber-blue 
+    before:content-[''] before:absolute before:bottom-2 before:left-2 
+    before:w-3 before:h-3 before:border-b-2 before:border-l-2 before:border-cyber-blue;
   }
 }
