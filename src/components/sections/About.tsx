@@ -8,7 +8,7 @@ const About = () => {
             <div className="cyber-border p-1 max-w-sm mx-auto">
               <div className="relative overflow-hidden aspect-square">
                 {/* Replace with your actual image */}
-                <div className="w-full  bg-gradient-to-br from-cyber-blue/20 to-cyber-pink/20 flex items-center">
+                <div className="w-full h-full  bg-gradient-to-br from-cyber-blue/20 to-cyber-pink/20 flex items-center">
                  <img src="/images/profile.jpg" alt="Profile" />
                 </div>
               </div>
