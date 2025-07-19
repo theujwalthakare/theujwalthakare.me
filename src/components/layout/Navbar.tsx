@@ -26,6 +26,28 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
+  
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      // Close mobile menu if open
+      setIsOpen(false);
+      
+      // Add a small delay for mobile menu to close
+      setTimeout(() => {
+        // Get the target's position with offset for the navbar
+        const navbarHeight = document.querySelector('nav')?.offsetHeight || 0;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        
+        // Smooth scroll to the target
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -40,6 +62,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className="font-mono text-white hover:text-cyber-blue transition-colors duration-300"
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.name}
             </a>
@@ -64,7 +87,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className="font-mono text-white hover:text-cyber-blue transition-colors duration-300"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.name}
               </a>
