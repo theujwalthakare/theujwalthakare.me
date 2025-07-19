@@ -45,7 +45,7 @@ const About = () => {
               
               <div className="cyber-card flex-1 min-w-[200px]">
                 <h3 className="text-cyber-blue font-cyber text-lg mb-2">Location</h3>
-                <p className="text-gray-400">Nashik, India</p>
+                <p className="text-gray-400">Pune, India</p>
                 <p className="text-gray-500 text-sm">Open to Remote Work</p>
               </div>
             </div>

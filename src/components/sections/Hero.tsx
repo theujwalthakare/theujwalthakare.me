@@ -98,7 +98,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl">
           <h1 className="text-2xl md:text-6xl font-dystopian text-white mb-4">
-            <span className="block">HELLO, I'M</span>
+            <span className="block">I'AM</span>
             <span className="text-cyber-blue animate-glow">UJWAL THAKARE</span>
           </h1>
           
