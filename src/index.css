@@ -15,12 +15,22 @@
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  @apply bg-cyber-dark text-white font-mono;
-  overflow-x: hidden;
+@layer base {
+  body {
+    @apply bg-white dark:bg-cyber-dark text-gray-700 dark:text-gray-300 font-mono transition-colors duration-300;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  section {
+    @apply py-16 md:py-20;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white;
+  }
 }
 
 @layer components {

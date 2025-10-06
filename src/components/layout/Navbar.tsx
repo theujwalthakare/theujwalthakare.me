@@ -1,22 +1,27 @@
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -26,7 +31,7 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
-  
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const targetElement = document.querySelector(href);
@@ -45,7 +50,9 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-cyber-dark/80 backdrop-blur-md py-2' : 'bg-transparent py-4'
+      scrolled 
+        ? 'bg-white/80 dark:bg-cyber-dark/80 backdrop-blur-md py-2' 
+        : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-4 flex justify-center items-center">
         <div className="hidden md:flex space-x-7">
@@ -70,13 +77,13 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-cyber-light border-t border-cyber-blue/30">
+        <div className="md:hidden bg-white dark:bg-cyber-light border-t border-gray-200 dark:border-cyber-blue/30">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="font-mono text-white hover:text-cyber-blue transition-colors duration-300"
+                className="font-mono text-gray-800 dark:text-white hover:text-cyber-blue transition-colors duration-300"
                 onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.name}
