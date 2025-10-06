@@ -1,4 +1,4 @@
-//import { FaReact, FaDatabase, FaServer, FaLaptopCode, FaTools, FaJava } from 'react-icons/fa';
+import { FaReact, FaDatabase, FaServer, FaLaptopCode, FaTools, FaJava } from 'react-icons/fa';
 
 const skills = [
   'React', 'JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3', 
