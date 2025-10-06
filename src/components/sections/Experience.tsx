@@ -106,12 +106,19 @@ const Experience = () => {
                 </div>
                 
                 <ul className="space-y-2">
-                  {job.description.map((item, i) => (
-                    <li key={i} className="text-gray-400 flex">
+                  {Array.isArray(job.description) ? (
+                    job.description.map((item, i) => (
+                      <li key={i} className="text-gray-400 flex">
+                        <span className="text-cyber-blue mr-2">›</span>
+                        {item}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-gray-400 flex">
                       <span className="text-cyber-blue mr-2">›</span>
-                      {item}
+                      {job.description}
                     </li>
-                  ))}
+                  )}
                 </ul>
               </div>
             ))}
