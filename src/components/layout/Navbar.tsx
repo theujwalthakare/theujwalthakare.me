@@ -31,16 +31,10 @@ const Navbar = () => {
     e.preventDefault();
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      // Close mobile menu if open
       setIsOpen(false);
-      
-      // Add a small delay for mobile menu to close
       setTimeout(() => {
-        // Get the target's position with offset for the navbar
         const navbarHeight = document.querySelector('nav')?.offsetHeight || 0;
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
-        
-        // Smooth scroll to the target
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
@@ -53,9 +47,7 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled ? 'bg-cyber-dark/80 backdrop-blur-md py-2' : 'bg-transparent py-4'
     }`}>
-      <div className="container mx-auto px-4 flex justify-center  items-center">
-        
-        {/* Desktop Navigation */}
+      <div className="container mx-auto px-4 flex justify-center items-center">
         <div className="hidden md:flex space-x-7">
           {navLinks.map((link) => (
             <a
@@ -69,7 +61,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Navigation Button */}
         <button
           className="md:hidden justify-end text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +69,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden bg-cyber-light border-t border-cyber-blue/30">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
