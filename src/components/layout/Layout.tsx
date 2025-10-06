@@ -1,19 +1,17 @@
-import type { ReactNode } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import MatrixRain from '../ui/MatrixRain';
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-grow">
-        {children}
-      </main>
-      <Footer />
+    <div className="relative min-h-screen">
+      <MatrixRain />
+      <div className="relative z-10">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };

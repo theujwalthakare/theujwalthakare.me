@@ -85,7 +85,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen flex items-center">
+    <section id="home" className="h-screen flex items-center justify-center text-center">
       {/* Matrix rain background */}
       <div className="absolute inset-0 bg-cyber-dark z-0">
         <canvas ref={canvasRef} className="w-full h-full opacity-30" />
@@ -97,25 +97,12 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl">
-          <h1 className="text-2xl md:text-6xl font-dystopian text-white mb-4">
-            <span className="block">I'AM</span>
-            <span className="text-cyber-blue animate-glow">UJWAL THAKARE</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Ujwal Thakare
           </h1>
-          
-          <div className="h-1 w-32 bg-cyber-pink mb-6"></div>
-          
-          <h2 className="text-xl md:text-2xl font-mono text-gray-300 mb-8">
-            <span className="typing-text">Full Stack Developer | Cybersecurity Enthusiast </span>
-          </h2>
-          
-          <p className="text-gray-400 mb-8 max-w-lg">
-            Building digital experiences with a focus on performance, security, and cutting-edge design.
-            Let's create something extraordinary together.
+          <p className="text-lg md:text-2xl text-gray-800 dark:text-cyber-blue">
+            Front-End Developer | React Enthusiast
           </p>
-          
-          <a href="#about" className="cyber-button">
-            Explore My Work
-          </a>
         </div>
       </div>
       
