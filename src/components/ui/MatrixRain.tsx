@@ -86,7 +86,7 @@ const MatrixRain = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute top-0 left-0 w-full h-full z-0 opacity-10 dark:opacity-30"
+      className="absolute top-0 left-0 w-full h-full z-0 opacity-30"
     />
   );
 };

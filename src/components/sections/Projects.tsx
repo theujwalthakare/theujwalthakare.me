@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import portfolioImg from '../../assets/portfolio.png';
-import booknjoyImg from '../../assets/booknjoy.png';
-import ubsecureImg from '../../assets/ubsecure.png';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -12,7 +9,7 @@ const Projects = () => {
       title: "BookNJoy - Event Ticketing App",
       description:
         "A full-featured event booking platform allowing users to browse, book, and generate tickets for events. Built using a secure and scalable full-stack architecture.",
-      image: booknjoyImg,
+      image: "/images/booknjoy.png",
       technologies: ["React", "Spring Boot", "Hibernate", "PostgreSQL"],
       category: "fullstack",
       github: "https://github.com/theujwalthakare/aaomile",
@@ -22,7 +19,7 @@ const Projects = () => {
       title: "UbeSecure - Cyber Complaint Portal",
       description:
         "A concept-stage citizen complaint platform designed to report cybercrime incidents to authorities securely with OTP verification, dashboards, and real-time tracking.",
-      image: ubsecureImg,
+      image: "/images/ubsecure.png",
       technologies: ["HTML", "JavaScript", "PHP", "MySQL", "Security Workflow"],
       category: "fullstack",
       github: "https://github.com/theujwalthakare/ubsecure",
@@ -32,7 +29,7 @@ const Projects = () => {
       title: "Personal Portfolio Website",
       description:
         "Cyberpunk-themed personal portfolio website to showcase my technical skills, experience, and featured projects. Responsive and animated with Framer Motion.",
-      image: portfolioImg,
+      image: "/images/portfolio.png", // Replace with actual image path
       technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
       category: "frontend",
       github: "https://github.com/theujwalthakare/theujwalthakare.me",

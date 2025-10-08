@@ -1,13 +1,11 @@
 import { useState } from 'react';
 
-const experiences = [
-  {
-    role: 'Front-End Developer (Intern)',
-    company: 'Tech Solutions Inc.',
-    period: 'Jun 2025 - Aug 2025',
-    description: 'Worked on building responsive user interfaces with React and TypeScript. Collaborated with the design team to implement new features.'
-  },
-  {
+const Experience = () => {
+  const [activeTab, setActiveTab] = useState('work');
+  
+
+  const workExperience = [
+   {
     title: "Training & Internship – Python Full Stack ",
     company: "The Kiran Academy, Pune",
     period: "2025 (Ongoing)",
@@ -20,7 +18,7 @@ const experiences = [
    }
   ];
 
-const education = [
+  const education = [
     {
       degree: "Bachelor of Science in Computer Science",
       institution: "Savitribai Phule Pune University",
@@ -49,9 +47,6 @@ const education = [
     },
     
   ];
-
-const Experience = () => {
-  const [activeTab, setActiveTab] = useState('work');
 
   return (
     <section id="experience" className="py-20 bg-cyber-light">
@@ -94,31 +89,24 @@ const Experience = () => {
         {/* Work Experience */}
         {activeTab === 'work' && (
           <div className="space-y-8 max-w-3xl mx-auto">
-            {experiences.map((job, index) => (
+            {workExperience.map((job, index) => (
               <div key={index} className="cyber-card relative pl-8">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-cyber-blue/30"></div>
                 <div className="absolute left-0 top-0 w-2 h-2 -translate-x-1/2 bg-cyber-blue"></div>
                 
-                <h3 className="text-xl font-cyber text-cyber-blue mb-1">{job.role || job.title}</h3>
+                <h3 className="text-xl font-cyber text-cyber-blue mb-1">{job.title}</h3>
                 <div className="flex justify-between mb-4">
                   <span className="text-gray-300">{job.company}</span>
                   <span className="text-cyber-pink font-mono text-sm">{job.period}</span>
                 </div>
                 
                 <ul className="space-y-2">
-                  {Array.isArray(job.description) ? (
-                    job.description.map((item, i) => (
-                      <li key={i} className="text-gray-400 flex">
-                        <span className="text-cyber-blue mr-2">›</span>
-                        {item}
-                      </li>
-                    ))
-                  ) : (
-                    <li className="text-gray-400 flex">
+                  {job.description.map((item, i) => (
+                    <li key={i} className="text-gray-400 flex">
                       <span className="text-cyber-blue mr-2">›</span>
-                      {job.description}
+                      {item}
                     </li>
-                  )}
+                  ))}
                 </ul>
               </div>
             ))}

@@ -90,118 +90,119 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="container mx-auto px-4">
-      <h2 className="cyber-heading text-3xl mb-6">Get In Touch</h2>
-      <div className="h-1 w-24 bg-cyber-blue mx-auto mb-8"></div>
-      <p className="text-gray-300 max-w-2xl mx-auto mb-12">
-        Have a project in mind or want to discuss potential opportunities? 
-        Feel free to reach out using the form below or through my contact information.
-      </p>
-      
-      <div className="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto">
-        {/* Contact Form */}
-        <div className="w-full lg:w-2/3">
-          <div className="cyber-border p-6">
-            <form id="contact-form" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyber-blue focus:border-cyber-blue block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-gray-300 mb-2">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyber-blue focus:border-cyber-blue block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-              
-              <div className="mb-6">
-                <label htmlFor="subject" className="block text-gray-300 mb-2">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-cyber-dark border border-cyber-blue/30 text-white p-3 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
-                />
-              </div>
-              
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-300 mb-2">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyber-blue focus:border-cyber-blue block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="text-white bg-cyber-blue/80 hover:bg-cyber-blue focus:ring-4 focus:outline-none focus:ring-cyber-blue/50 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyber-blue dark:hover:bg-cyber-blue/90 dark:focus:ring-cyber-blue/80 dark:text-cyber-dark"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-              
-              {submitMessage && (
-                <div className={`mt-4 p-3 ${
-                  submitStatus === 'success' ? 'bg-green-900/20 border border-green-500 text-green-400' : 
-                  'bg-red-900/20 border border-red-500 text-red-400'
-                }`}>
-                  {submitMessage}
-                </div>
-              )}
-            </form>
-          </div>
+    <section id="contact" className="py-20 bg-cyber-light">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="cyber-heading text-3xl mb-6">Get In Touch</h2>
+          <div className="h-1 w-24 bg-cyber-blue mx-auto mb-8"></div>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss potential opportunities? 
+            Feel free to reach out using the form below or through my contact information.
+          </p>
         </div>
         
-        {/* Contact Info */}
-        <div className="w-full lg:w-1/3">
-          <div className="space-y-6">
-            {contactInfo.map((info, index) => (
-              <div key={index} className="cyber-card flex items-start">
-                <div className="mr-4 mt-1">{info.icon}</div>
-                <div>
-                  <h3 className="text-cyber-blue font-cyber mb-1">{info.title}</h3>
-                  {info.link ? (
-                    <a 
-                      href={info.link} 
-                      className="text-gray-300 hover:text-cyber-blue transition-colors duration-300"
-                      target={info.link.startsWith('mailto') ? undefined : '_blank'}
-                      rel={info.link.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                    >
-                      {info.value}
-                    </a>
-                  ) : (
-                    <p className="text-gray-300">{info.value}</p>
-                  )}
+        <div className="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto">
+          {/* Contact Form */}
+          <div className="w-full lg:w-2/3">
+            <div className="cyber-border p-6">
+              <form id="contact-form" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-cyber-dark border border-cyber-blue/30 text-white p-3 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-300 mb-2">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-cyber-dark border border-cyber-blue/30 text-white p-3 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+                
+                <div className="mb-6">
+                  <label htmlFor="subject" className="block text-gray-300 mb-2">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-cyber-dark border border-cyber-blue/30 text-white p-3 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
+                  />
+                </div>
+                
+                <div className="mb-6">
+                  <label htmlFor="message" className="block text-gray-300 mb-2">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="w-full bg-cyber-dark border border-cyber-blue/30 text-white p-3 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
+                  ></textarea>
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="cyber-button w-full flex justify-center items-center"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+                
+                {submitMessage && (
+                  <div className={`mt-4 p-3 ${
+                    submitStatus === 'success' ? 'bg-green-900/20 border border-green-500 text-green-400' : 
+                    'bg-red-900/20 border border-red-500 text-red-400'
+                  }`}>
+                    {submitMessage}
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+          
+          {/* Contact Info */}
+          <div className="w-full lg:w-1/3">
+            <div className="space-y-6">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="cyber-card flex items-start">
+                  <div className="mr-4 mt-1">{info.icon}</div>
+                  <div>
+                    <h3 className="text-cyber-blue font-cyber mb-1">{info.title}</h3>
+                    {info.link ? (
+                      <a 
+                        href={info.link} 
+                        className="text-gray-300 hover:text-cyber-blue transition-colors duration-300"
+                        target={info.link.startsWith('mailto') ? undefined : '_blank'}
+                        rel={info.link.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="text-gray-300">{info.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
